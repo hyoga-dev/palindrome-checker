@@ -18,21 +18,6 @@ Program ini memiliki dua metode untuk memeriksa palindrome:
   2. Jika karakter di posisi `left` dan `right` tidak sama, fungsi mengembalikan `false`.
   3. Jika semua karakter cocok, fungsi mengembalikan `true`.
 
-- **Kelebihan `isPalindrome` dibandingkan `isPalindrome2`**:
-  - **Efisiensi Memori**: Fungsi `isPalindrome` tidak membuat salinan dari string, sehingga lebih efisien dalam penggunaan memori, terutama untuk string yang besar.
-  - **Kecepatan Eksekusi**: Tanpa salinan yang dibuat, `isPalindrome` lebih cepat, terutama saat memeriksa palindrom dalam konteks di mana fungsi sering dipanggil atau di dalam loop.
-  - **Sederhana dan Langsung**: Algoritma yang digunakan dalam `isPalindrome` lebih langsung dan tidak memerlukan langkah tambahan untuk membalik string.
-
-### Metode 2: `isPalindrome2` (Opsional)
-
-- **Parameter**: `string txt`
-
-  Menggunakan parameter string biasa, yang berarti membuat salinan dari string ketika fungsi dipanggil.
-
-- **Proses**:
-  1. Membalik string dan membandingkannya dengan string asli.
-  2. Mengembalikan `true` jika keduanya sama, dan `false` jika tidak.
-
 ## Kode
 
 ```cpp
@@ -40,23 +25,19 @@ Program ini memiliki dua metode untuk memeriksa palindrome:
 using namespace std;
 
 bool isPalindrome(const string& txt) {
-    int left = 0;
-    int right = txt.length() - 1;
-    while (right > left) if (txt[left++] != txt[right--]) return false;
-    return true;
-}
-
-bool isPalindrome2(string txt) { 
-    string txtRev = txt;
-    reverse(txtRev.begin(), txtRev.end());
-    return (txtRev == txt) ? true : false;
+	int left = 0;
+	int right = txt.length() - 1;
+	while (left < right) {
+		if (txt[left++] != txt[right--]) return false;
+	}
+	return true;
 }
 
 int main() {
-    string kata;
-    cout << "--Check kata--\n\n";
-    cout << "Input kata : "; cin >> kata;
-    cout << "Hasil : " << boolalpha << isPalindrome(kata) << endl;
+	string kata;
+	cout << "--Check kata--\n\n";
+	cout << "Input kata : "; cin >> kata;
+	cout << "Hasil : " << boolalpha << isPalindrome(kata) << endl;
 }
 ```
 
