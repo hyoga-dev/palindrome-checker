@@ -24,7 +24,7 @@ Program ini memiliki dua metode untuk memeriksa palindrome:
 #include <iostream>
 using namespace std;
 
-bool isPalindrome(const string& txt) {
+bool isPalindrome(const string txt) {
 	int left = 0;
 	int right = txt.length() - 1;
 	while (left < right) {
