@@ -10,12 +10,6 @@ bool isPalindrome(const string& txt) {
 	return true;
 }
 
-bool isPalindrome2(string txt) {
-	string txtRev = txt;
-	reverse(txtRev.begin(), txtRev.end());
-	return (txtRev == txt);
-}
-
 int main() {
 	string kata;
 	cout << "--Check kata--\n\n";
