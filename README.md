@@ -7,7 +7,7 @@ Program ini merupakan aplikasi sederhana dalam C++ yang berfungsi untuk memeriks
 
 Program ini memiliki dua metode untuk memeriksa palindrome:
 
-### Metode 1: `isPalindrome`
+### Metode : `isPalindrome`
 
 - **Parameter**: `const string& txt`
 
