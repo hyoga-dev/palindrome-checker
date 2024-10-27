@@ -39,7 +39,6 @@ Program ini memiliki dua metode untuk memeriksa palindrome:
 #include <iostream>
 using namespace std;
 
-// sedikit lebih komplex namun lebih cepat dalam eksekusi
 bool isPalindrome(const string& txt) {
     int left = 0;
     int right = txt.length() - 1;
@@ -47,7 +46,6 @@ bool isPalindrome(const string& txt) {
     return true;
 }
 
-// lebih mudah dipahami tapi lebih lambat
 bool isPalindrome2(string txt) { 
     string txtRev = txt;
     reverse(txtRev.begin(), txtRev.end());
