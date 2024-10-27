@@ -62,6 +62,6 @@ int main() {
 }
 
 ## Hasil eksekusi
-![Gambar Contoh](WhatsApp Image 2024-10-27 at 17.32.08_b57d4564.jpg)
+![Gambar Contoh](hasilEksekusi.jpg)
 
 
