@@ -4,7 +4,9 @@ using namespace std;
 bool isPalindrome(const string& txt) {
 	int left = 0;
 	int right = txt.length() - 1;
-	while (right > left) if (txt[left++] != txt[right--]) return false;
+	while (right > left) {
+		if (txt[left++] != txt[right--]) return false;
+	}
 	return true;
 }
 
