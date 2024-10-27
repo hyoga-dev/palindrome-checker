@@ -1,45 +1,64 @@
-# Dokumentasi Kode Palindrome
+
+# Palindrome Checker
 
 ## Deskripsi
 
-Kode ini adalah program sederhana dalam C++ yang memeriksa apakah sebuah string adalah palindrom. Palindrom adalah kata, frasa, angka, atau urutan lainnya yang dibaca sama baik dari depan maupun dari belakang, tanpa memperhatikan spasi dan tanda baca.
+Program ini merupakan aplikasi sederhana dalam C++ yang berfungsi untuk memeriksa apakah suatu kata adalah palindrome. Palindrome adalah kata, frasa, angka, atau urutan karakter lain yang dibaca sama dari depan maupun belakang (misalnya, "radar" atau "level").
 
-### Struktur Kode
+Program ini memiliki dua metode untuk memeriksa palindrome:
 
-1. **Fungsi `isPalindrome`**
-2. **Fungsi `isPalindrome2`** (opsional)
-3. **Fungsi `main`**
+### Metode 1: `isPalindrome`
 
-## Kode Sumber
+- **Parameter**: `const string& txt`
+
+  Menggunakan referensi ke string (`const string&`) untuk menghindari salinan yang tidak perlu, sehingga meningkatkan efisiensi memori dan kecepatan eksekusi.
+
+- **Proses**:
+  1. Menggunakan dua indeks (`left` dan `right`) untuk membandingkan karakter dari kedua sisi string.
+  2. Jika karakter di posisi `left` dan `right` tidak sama, fungsi mengembalikan `false`.
+  3. Jika semua karakter cocok, fungsi mengembalikan `true`.
+
+- **Kelebihan `isPalindrome` dibandingkan `isPalindrome2`**:
+  - **Efisiensi Memori**: Fungsi `isPalindrome` tidak membuat salinan dari string, sehingga lebih efisien dalam penggunaan memori, terutama untuk string yang besar.
+  - **Kecepatan Eksekusi**: Tanpa salinan yang dibuat, `isPalindrome` lebih cepat, terutama saat memeriksa palindrom dalam konteks di mana fungsi sering dipanggil atau di dalam loop.
+  - **Sederhana dan Langsung**: Algoritma yang digunakan dalam `isPalindrome` lebih langsung dan tidak memerlukan langkah tambahan untuk membalik string.
+
+### Metode 2: `isPalindrome2` (Opsional)
+
+- **Parameter**: `string txt`
+
+  Menggunakan parameter string biasa, yang berarti membuat salinan dari string ketika fungsi dipanggil.
+
+- **Proses**:
+  1. Membalik string dan membandingkannya dengan string asli.
+  2. Mengembalikan `true` jika keduanya sama, dan `false` jika tidak.
+
+## Kode
 
 ```cpp
 #include <iostream>
 using namespace std;
 
-// Fungsi untuk memeriksa apakah sebuah string adalah palindrom
+// sedikit lebih komplex namun lebih cepat dalam eksekusi
 bool isPalindrome(const string& txt) {
     int left = 0;
     int right = txt.length() - 1;
-
-    while (right > left) {
-        if (txt[left++] != txt[right--]) {
-            return false; // Jika karakter tidak sama, kembalikan false
-        }
-    }
-    return true; // Jika semua karakter cocok, kembalikan true
+    while (right > left) if (txt[left++] != txt[right--]) return false;
+    return true;
 }
 
-// Fungsi kedua untuk memeriksa palindrom (opsional)
-bool isPalindrome2(string txt) {
-    string txtRev = txt; // Membuat salinan dari string asli
-    reverse(txtRev.begin(), txtRev.end()); // Membalik string
-    return (txtRev == txt) ? true : false; // Membandingkan dengan string asli
+// lebih mudah dipahami tapi lebih lambat
+bool isPalindrome2(string txt) { 
+    string txtRev = txt;
+    reverse(txtRev.begin(), txtRev.end());
+    return (txtRev == txt) ? true : false;
 }
 
-// Fungsi utama untuk menjalankan program
 int main() {
     string kata;
     cout << "--Check kata--\n\n";
-    cout << "Input kata : "; cin >> kata; // Meminta input dari pengguna
-    cout << "Hasil : " << boolalpha << isPalindrome(kata) << endl; // Menampilkan hasil
+    cout << "Input kata : "; cin >> kata;
+    cout << "Hasil : " << boolalpha << isPalindrome(kata) << endl;
 }
+
+
