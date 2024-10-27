@@ -13,7 +13,7 @@ bool isPalindrome(const string& txt) {
 bool isPalindrome2(string txt) {
 	string txtRev = txt;
 	reverse(txtRev.begin(), txtRev.end());
-	return (txtRev == txt) ? true : false;
+	return (txtRev == txt);
 }
 
 int main() {
