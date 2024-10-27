@@ -9,5 +9,5 @@ void main() {
 	string txtRev = txt;
 	reverse(txtRev.begin(), txtRev.end()); 
 
-	cout << "Hasil : " << boolalpha << (txtRev == txt) ? true : false;
+	cout << "Hasil : " << boolalpha << (txtRev == txt);
 }
