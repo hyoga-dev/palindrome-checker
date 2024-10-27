@@ -7,17 +7,15 @@ Program ini merupakan aplikasi sederhana dalam C++ yang berfungsi untuk memeriks
 
 Program ini memiliki dua metode untuk memeriksa palindrome:
 
-### Metode 1: `isPalindrome`
+### Metode : `isPalindrome2` 
 
-- **Parameter**: `const string& txt`
+- **Parameter**: `string txt`
 
-  Menggunakan referensi ke string (`const string&`) untuk menghindari salinan yang tidak perlu, sehingga meningkatkan efisiensi memori dan kecepatan eksekusi.
+  Menggunakan parameter string biasa, yang berarti membuat salinan dari string ketika fungsi dipanggil.
 
 - **Proses**:
-  1. Menggunakan dua indeks (`left` dan `right`) untuk membandingkan karakter dari kedua sisi string.
-  2. Jika karakter di posisi `left` dan `right` tidak sama, fungsi mengembalikan `false`.
-  3. Jika semua karakter cocok, fungsi mengembalikan `true`.
-
+  1. Membalik string dan membandingkannya dengan string asli.
+  2. Mengembalikan `true` jika keduanya sama, dan `false` jika tidak.
 ## Kode
 
 ```cpp
