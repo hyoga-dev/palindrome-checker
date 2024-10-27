@@ -60,6 +60,7 @@ int main() {
     cout << "Input kata : "; cin >> kata;
     cout << "Hasil : " << boolalpha << isPalindrome(kata) << endl;
 }
+```
 
 ## Hasil eksekusi
 ![Gambar Contoh](hasilEksekusi.jpg)
